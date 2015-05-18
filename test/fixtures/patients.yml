@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  initials: MyString
+  date_of_birth: 2015-05-18
+  screening_number: MyString
+  screening_date: 2015-05-18
+  meets_inclusion_criteria: 
+
+two:
+  initials: MyString
+  date_of_birth: 2015-05-18
+  screening_number: MyString
+  screening_date: 2015-05-18
+  meets_inclusion_criteria: 

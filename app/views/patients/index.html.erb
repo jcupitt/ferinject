@@ -1,0 +1,27 @@
+<h1>All patients</h1>
+ 
+<p>
+    <table>
+        <tr>
+            <th>Initials</th>
+            <th>Date of birth</th>
+            <th>Screening number</th>
+            <th>Screening date</th>
+            <th>Meets inclusion criteria</th>
+        </tr>
+                         
+        <% @patients.each do |patient| %>
+            <tr>
+                <td><%= patient.initials %></td>
+                <td><%= patient.date_of_birth %></td>
+                <td><%= patient.screening_number %></td>
+                <td><%= patient.screening_date %></td>
+                <td><%= patient.meets_inclusion_criteria %></td>
+            </tr>
+        <% end %>
+    </table>
+</p>
+
+<p>
+    <%= link_to 'Register New Patient', new_patient_path %>
+</p>

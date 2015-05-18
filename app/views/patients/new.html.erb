@@ -1,0 +1,47 @@
+<h1>Register Patient</h1>
+
+<%= form_for :patient, url: patients_path do |f| %>
+    <% if @patient.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@patient.errors.count, "error") %> prohibited
+                              this patient from being saved:</h2>
+
+            <ul>
+                <% @patient.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <p>
+        <%= f.label :initials %><br>
+        <%= f.text_field :initials %>
+    </p>
+
+    <p>
+        <%= f.label :date_of_birth %><br>
+        <%= f.date_field :date_of_birth %>
+    </p>
+
+    <p>
+        <%= f.label :screening_number %><br>
+        <%= f.text_field :screening_number %>
+    </p>
+
+    <p>
+        <%= f.label :screening_date %><br>
+        <%= f.text_field :screening_date %>
+    </p>
+
+    <p>
+        <%= f.label :meets_inclusion_criteria %><br>
+        <%= f.check_box :meets_inclusion_criteria %>
+    </p>
+
+    <p>
+        <%= f.submit "Register Patient" %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', patients_path %>
