@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     get 'signup'  => 'users#new'
 
     resources :patients
+    resources :users
 
     root 'welcome#index'
 

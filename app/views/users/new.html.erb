@@ -1,5 +1,36 @@
-<% provide(:title, 'Sign up') %>
+<h1>Register new user</h1>
 
-<h1>Sign up</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@user) do |f| %>
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@user.errors.count, "error") %> 
+                    prohibited this user from being created:</h2>
+                    <ul>
+                        <% @user.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
 
-<p>This will be a signup page for new users.</p>
+            <%= f.label :email %>
+            <%= f.email_field :email %></br>
+
+            <%= f.label :password %>
+            <%= f.password_field :password %></br>
+
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation %></br>
+
+            <%= f.label :institution %>
+            <%= f.text_field :institution %></br>
+
+            <%= f.label :role %>
+            <%= f.text_field :role %></br>
+
+            <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
