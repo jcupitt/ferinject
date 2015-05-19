@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :patients
+    get 'signup'  => 'users#new'
 
-  root 'welcome#index'
+    resources :patients
+
+    root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

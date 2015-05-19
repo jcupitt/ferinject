@@ -4,4 +4,9 @@
 
 	chapters 6 7 8 
 
+- made sample user in DB with
+
+	$ rails console
+	irb(main):001:0> User.new(email: "jcupitt@gmail.com", institution: "home", password: "grunthos", password_confirmation: "grunthos", role: "A")
+
 

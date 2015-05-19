@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518124720) do
+ActiveRecord::Schema.define(version: 20150519111558) do
 
   create_table "patients", force: true do |t|
     t.string   "initials"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20150518124720) do
     t.boolean  "meets_inclusion_criteria"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "institution"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
