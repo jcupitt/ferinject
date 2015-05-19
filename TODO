@@ -1,6 +1,7 @@
-- screening_date should default to today
+- add user model
 
-	require 'date'
-	@screening_date = Date.today.to_s
+	https://www.railstutorial.org/book
+
+	chapters 6 7 8 
 
 
