@@ -12,6 +12,17 @@
     <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
+
+    <div class="login">
+        <% if logged_in? %>
+            Logged in as <%= link_to current_user.email, current_user %>
+            <%= link_to "Log out", logout_path, method: :delete %>
+        <% else %>
+            <%= link_to "Log in", login_path %>
+        <% end %>
+    </div>
+
+
     <%= yield %>
 </div>
 
