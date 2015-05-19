@@ -8,15 +8,21 @@
             <th>Screening number</th>
             <th>Screening date</th>
             <th>Meets inclusion criteria</th>
+            <th></th>
+            <th></th>
         </tr>
-                         
+
         <% @patients.each do |patient| %>
             <tr>
-                <td><%= patient.initials %></td>
+                <td><%= link_to patient.initials, patient_path(patient) %></td>
                 <td><%= patient.date_of_birth %></td>
                 <td><%= patient.screening_number %></td>
                 <td><%= patient.screening_date %></td>
                 <td><%= patient.meets_inclusion_criteria %></td>
+                <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+                <td><%= link_to 'Destroy', patient_path(patient),
+                    method: :delete, 
+                    data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </table>

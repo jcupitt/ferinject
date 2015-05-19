@@ -1,0 +1,6 @@
+- screening_date should default to today
+
+	require 'date'
+	@screening_date = Date.today.to_s
+
+

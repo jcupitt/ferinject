@@ -1,9 +1,6 @@
-<h1>Register Patient</h1>
+<h1>Editing patient</h1>
 
-<!-- tried to use partials to common up with edit, but my rails seems to not 
-    link up post correctly .... just copy-paste the code -->
-
-<%= form_for :patient, url: patients_path do |f| %>
+<%= form_for :patient, url: patient_path(@patient), method: :patch do |f| %>
     <% if @patient.errors.any? %>
         <div id="error_explanation">
             <h2><%= pluralize(@patient.errors.count, "error") %> 
