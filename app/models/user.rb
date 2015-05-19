@@ -11,8 +11,25 @@ class User < ActiveRecord::Base
         length: { minimum: 2, maximum: 250 }
     validates :password, 
         presence: true, 
-        length: { minimum: 5, maximum: 20 }
-    validates :role, presence: true, length: { is: 1 }
+        length: { minimum: 5, maximum: 20 },
+        allow_blank: true
+    validates :role, 
+        presence: true, 
+        inclusion: { in: %w(admin nurse physician),
+            message: "%{value} is not a valid role" }
 
     has_secure_password
+
+    def admin?
+        self.role == "admin"
+    end
+
+    def nurse?
+        self.role == "nurse"
+    end
+
+    def physician?
+         role == "physician"
+    end
+
 end

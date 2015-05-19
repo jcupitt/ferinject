@@ -30,6 +30,9 @@ gem 'date_validator'
 gem 'email_validator'
 gem 'bcrypt'
 
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

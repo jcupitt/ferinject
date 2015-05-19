@@ -1,7 +1,10 @@
 <h1>FERINJECT</h1>
 
-<%= link_to "Register", signup_path %>
 
-<%= link_to 'All Patients', controller: 'patients' %>
+<% if logged_in? %>
+    <%= link_to 'All Patients', controller: 'patients' %>
+<% else %>
+    <%= link_to "Register", signup_path %>
+<% end %>
 
 

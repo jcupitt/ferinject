@@ -4,9 +4,20 @@
 
 	chapters 6 7 8 
 
-- made sample user in DB with
+- make sample user in DB with
 
 	$ rails console
-	irb(main):001:0> User.new(email: "jcupitt@gmail.com", institution: "home", password: "grunthos", password_confirmation: "grunthos", role: "A")
+	irb(main):001:0> User.create(email: "jcupitt@gmail.com", institution:
+"Imperial", password: "xxx", password_confirmation: "xxx", role: "admin")
 
+  only way to make an admin, unless you are an admin
 
+- test blocks on create etc. for nurses
+
+- stop admins being made unless creator is an admin
+
+- stop phys being made unless creator is admin or phys
+
+- anyone can register, of course
+
+- add 1 - 45 random thing
