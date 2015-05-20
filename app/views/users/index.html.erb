@@ -2,9 +2,17 @@
 
 <%= will_paginate %>
 
-<ul class="users">
+<table class="users">
+    <tr>
+        <th></th>
+        <th>User</th>
+        <th>Role</th>
+        <th>Institution</th>
+        <th></th>
+    </tr>
+
     <%= render @users %>
-</ul>
+</table>
 
 <%= will_paginate %>
 

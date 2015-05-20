@@ -28,9 +28,13 @@
             <%= f.text_field :institution %></br>
 
             <%= f.label :role %>
-            <%= f.text_field :role %></br>
+            <% role_array = [["Please select", ""], 
+                             ["Nurse", "nurse"], 
+                             ["Physician", "physician"],
+                             ["Administrator", "admin"]] %>
+            <%= f.select :role, options_for_select(role_array, @user.role) %></br>
 
-            <%= f.submit "Create my account", class: "btn btn-primary" %>
+            <%= f.submit "Create user", class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>

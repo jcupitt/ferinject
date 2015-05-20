@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-    before_action :correct_user, only: [:edit, :update]
+    before_action :correct_user_or_admin, only: [:edit, :update]
     before_action :admin_user, only: :destroy
 
     def new
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         if @user.save
             flash[:success] = "Welcome to FERINJECT!"
             log_in @user
-            redirect_to @user
+            redirect_to patients_path
         else
             render 'new'
         end
@@ -53,16 +53,16 @@ class UsersController < ApplicationController
         end
     end
 
-    def correct_user
+    def correct_user_or_admin
         @user = User.find(params[:id])
-        redirect_to(root_url) unless current_user?(@user)
+        redirect_to(root_url) unless current_user?(@user) or current_user.admin?
     end
 
     private
         def user_params
             params.require(:user).permit(:email, :institution, 
-                                            :password, :password_confirmation, 
-                                            :role)
+                                         :password, :password_confirmation, 
+                                         :role)
         end
 
         def admin_user

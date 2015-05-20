@@ -10,8 +10,8 @@
             <th>Screening number</th>
             <th>Screening date</th>
             <th>Meets inclusion criteria</th>
-            <th></th>
-            <th></th>
+            <th>Week 1</th>
+            <th>Week 12</th>
         </tr>
 
         <% @patients.each do |patient| %>
@@ -21,11 +21,15 @@
                 <td><%= patient.screening_number %></td>
                 <td><%= patient.screening_date %></td>
                 <td><%= patient.meets_inclusion_criteria %></td>
-                <% if !current_user.nurse? %>
-                    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-                    <td><%= link_to 'Destroy', patient_path(patient),
-                        method: :delete, 
-                        data: { confirm: 'Are you sure?' } %></td>
+                <% path = patient.get_path %>
+                <% if path != :x %>
+                    <% if path == :a %>
+                        <td>ap02</td>
+                        <td>td07</td>
+                    <% else %>
+                        <td>td07</td>
+                        <td>ap02</td>
+                    <% end %>
                 <% end %>
             </tr>
         <% end %>

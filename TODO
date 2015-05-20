@@ -1,8 +1,8 @@
-- add user model
+- add mail confirmation
 
 	https://www.railstutorial.org/book
 
-	chapters 6 7 8 
+	chapter 10
 
 - make sample user in DB with
 
@@ -12,12 +12,3 @@
 
   only way to make an admin, unless you are an admin
 
-- test blocks on create etc. for nurses
-
-- stop admins being made unless creator is an admin
-
-- stop phys being made unless creator is admin or phys
-
-- anyone can register, of course
-
-- add 1 - 45 random thing
