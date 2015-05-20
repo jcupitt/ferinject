@@ -1,13 +1,27 @@
-- add mail confirmation
-
-	https://www.railstutorial.org/book
-
-	chapter 10
-
 - make sample user in DB with
 
 	$ rails console
 	irb(main):001:0> User.create(email: "jcupitt@gmail.com", institution: "Imperial", password: "xxx", password_confirmation: "xxx", role: "admin", activated: true, activated_at: Time.zone.now)
 
-  only way to make an admin, unless you are an admin
+- to set up heroku
+
+	heroku login
+	heroku keys:add
+	heroku create
+	git push heroku master
+	heroku run rake db:migrate
+
+  show logs
+
+	heroku logs
+
+  Update bundle, configure it not to install production gems locally
+
+	bundle install --without production
+
+  link to sendgrid
+
+	heroku addons:create sendgrid:starter
+
+
 
