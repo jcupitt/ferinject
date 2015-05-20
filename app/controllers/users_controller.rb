@@ -18,9 +18,15 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            flash[:success] = "Welcome to FERINJECT!"
-            log_in @user
-            redirect_to patients_path
+            if logged_in? && current_user.admin?
+                @user.activate
+                flash[:success] = "User #{@user.email} added and approved."
+                redirect_to users_path
+            else
+                @user.send_activation_email
+                flash[:info] = "Login application submitted, please wait for approval."
+                redirect_to root_url
+            end
         else
             render 'new'
         end

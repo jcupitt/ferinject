@@ -1,0 +1,12 @@
+FERINJECT account activation
+
+<%= @user.email %> has requested a login on FERINJECT as follows:
+
+Email: <%= @user.email %>
+Institution: <%= @user.institution %>
+Role: <%= @user.role %>
+
+Click this link to approve this user: 
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+

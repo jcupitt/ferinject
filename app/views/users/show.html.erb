@@ -2,6 +2,7 @@
 <%= @user.email %></br>
 <%= @user.institution %></br>
 <%= @user.role %></br>
+<%= @user.activated? ? "yes" : "no" %>
 
 <% if current_user.admin? && !current_user?(@user) %>
     <%= link_to "Edit", edit_user_path(@user) %>

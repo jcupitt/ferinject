@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :patients
     resources :users
 
+    resources :account_activations, only: [:edit]
+
     root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

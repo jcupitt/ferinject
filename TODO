@@ -7,8 +7,7 @@
 - make sample user in DB with
 
 	$ rails console
-	irb(main):001:0> User.create(email: "jcupitt@gmail.com", institution:
-"Imperial", password: "xxx", password_confirmation: "xxx", role: "admin")
+	irb(main):001:0> User.create(email: "jcupitt@gmail.com", institution: "Imperial", password: "xxx", password_confirmation: "xxx", role: "admin", activated: true, activated_at: Time.zone.now)
 
   only way to make an admin, unless you are an admin
 

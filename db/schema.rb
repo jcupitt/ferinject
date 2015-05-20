@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519111558) do
+ActiveRecord::Schema.define(version: 20150520101958) do
 
   create_table "patients", force: true do |t|
     t.string   "initials"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20150519111558) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
+    t.string   "remember_digest"
   end
 
 end
