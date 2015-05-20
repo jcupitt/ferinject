@@ -17,8 +17,6 @@
 
 *.swp
 
-# don't upload things like smtp configs
+# don't upload test smtp configs
 config/environments/development.rb
-config/environments/production.rb
-config/environments/test.rb
 
