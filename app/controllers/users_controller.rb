@@ -38,7 +38,10 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update_attributes(user_params)
+        if not current_user.admin? and params[:user][:role] != @user.role
+            flash[:danger] = "Only admin users can change user roles."
+            render 'edit'
+        elsif @user.update_attributes(user_params)
             flash[:success] = "Profile updated"
             redirect_to @user
         else

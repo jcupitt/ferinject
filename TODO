@@ -24,7 +24,3 @@
 	heroku addons:create sendgrid:starter
 
 
-- imperial colour 
-
-	background-color: #003E74;
-

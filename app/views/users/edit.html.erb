@@ -5,8 +5,10 @@
         <%= form_for(@user) do |f| %>
             <% if @user.errors.any? %>
                 <div id="error_explanation">
-                    <h2><%= pluralize(@user.errors.count, "error") %> 
-                    prohibited this user from being saved:</h2>
+                    <div class="alert alert-danger">
+                      <%= pluralize(@user.errors.count, "error") %> 
+                      prohibited this user from being created:
+                    </div>
                     <ul>
                         <% @user.errors.full_messages.each do |msg| %>
                             <li><%= msg %></li>
@@ -16,29 +18,30 @@
             <% end %>
 
             <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control' %></br>
+            <%= f.email_field :email %>
 
             <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %></br>
+            <%= f.password_field :password %>
 
             <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %></br>
+            <%= f.password_field :password_confirmation %>
 
             <%= f.label :institution %>
-            <%= f.text_field :institution %></br>
+            <%= f.text_field :institution %>
 
             <%= f.label :role %>
             <% role_array = [["Nurse", "nurse"], 
                              ["Physician", "physician"],
                              ["Administrator", "admin"]] %>
-            <%= f.select :role, options_for_select(role_array, @user.role) %></br>
+            <%= f.select :role, options_for_select(role_array, @user.role) %>
 
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
 
         <div class="gravatar_edit">
             <%= gravatar_for @user %>
-            <a href="http://gravatar.com/emails" target="_blank">change</a>
+            <a href="http://gravatar.com/emails" target="_blank">
+                Edit Gravatar</a>
         </div>
     </div>
 </div>

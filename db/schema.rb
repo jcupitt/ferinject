@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520101958) do
+ActiveRecord::Schema.define(version: 20150520201237) do
 
   create_table "patients", force: true do |t|
     t.string   "initials"
@@ -35,5 +35,7 @@ ActiveRecord::Schema.define(version: 20150520101958) do
     t.datetime "activated_at"
     t.string   "remember_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
