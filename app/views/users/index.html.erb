@@ -1,7 +1,10 @@
 <h1>All users</h1>
 
+<p>
 <%= will_paginate %>
+</p>
 
+<p>
 <table class="users">
     <tr>
         <th></th>
@@ -13,8 +16,13 @@
 
     <%= render @users %>
 </table>
+</p>
 
+<p>
 <%= will_paginate %>
+</p>
 
-<%= link_to "Create user", signup_path %>
+<p>
+<%= link_to "Create user", signup_path, class: "btn btn-lg btn-primary" %>
+</p>
 

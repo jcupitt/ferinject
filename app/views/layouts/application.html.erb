@@ -5,29 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
+
+<%= render 'layouts/header' %>
 
 <div class="container">
     <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
 
-    <div class="login">
-        <% if logged_in? %>
-            Logged in as <%= link_to current_user.email, current_user %>
-            <%= link_to "Log out", logout_path, method: :delete %>
-            <% if current_user.admin? %>
-                <%= link_to "User admin", users_path %>
-            <% end %>
-        <% else %>
-            <%= link_to "Log in", login_path %>
-        <% end %>
-    </div>
-
-
     <%= yield %>
 </div>
+
+<%= render 'layouts/footer' %>
 
 </body>
 </html>
