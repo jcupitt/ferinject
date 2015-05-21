@@ -34,7 +34,6 @@ class PatientsController < ApplicationController
 
     def update
         @patient = Patient.find(params[:id])
-
         if @patient.update(patient_params)
             redirect_to patients_path
         else
@@ -54,7 +53,8 @@ class PatientsController < ApplicationController
         def patient_params
             params.require(:patient).permit(:initials, :date_of_birth, 
                                             :screening_number, :screening_date, 
-                                            :meets_inclusion_criteria)
+                                            :meets_inclusion_criteria,
+                                            :rejection_note)
         end
 
         def logged_in_user
