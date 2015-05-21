@@ -1,0 +1,23 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :email %>
+<%= f.email_field :email, class: 'form-control' %>
+
+<%= f.label :password %>
+<%= f.password_field :password, class: 'form-control' %>
+
+<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.password_field :password_confirmation, 
+    class: 'form-control' %>
+
+<%= f.label :institution %>
+<%= f.text_field :institution, class: 'form-control' %>
+
+<%= f.label :role %>
+<% role_array = [["Please select", ""], 
+                 ["Nurse", "nurse"], 
+                 ["Physician", "physician"],
+                 ["Administrator", "admin"]] %>
+<%= f.select :role, options_for_select(role_array, @user.role), 
+    class: 'form-control' %>
+

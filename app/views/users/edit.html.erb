@@ -3,45 +3,14 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_for(@user) do |f| %>
-            <% if @user.errors.any? %>
-                <div id="error_explanation">
-                    <div class="alert alert-danger">
-                      <%= pluralize(@user.errors.count, "error") %> 
-                      prohibited this user from being created:
-                    </div>
-                    <ul>
-                        <% @user.errors.full_messages.each do |msg| %>
-                            <li><%= msg %></li>
-                        <% end %>
-                    </ul>
-                </div>
-            <% end %>
-
-            <%= f.label :email %>
-            <%= f.email_field :email %>
-
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation %>
-
-            <%= f.label :institution %>
-            <%= f.text_field :institution %>
-
-            <%= f.label :role %>
-            <% role_array = [["Nurse", "nurse"], 
-                             ["Physician", "physician"],
-                             ["Administrator", "admin"]] %>
-            <%= f.select :role, options_for_select(role_array, @user.role) %>
+            <%= render 'fields', f: f %>
 
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
 
         <div class="gravatar_edit">
             <%= gravatar_for @user %>
-            <a href="http://gravatar.com/emails" target="_blank">
-                Edit Gravatar</a>
+            <%= link_to "Edit Gravatar", "http://gravatar.com/emails", class: "btn btn-lg btn-primary" %>
         </div>
     </div>
 </div>

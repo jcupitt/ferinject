@@ -1,20 +1,30 @@
-
-<div class="row">
-    <aside class="col-md-5">
-        <section class="user_info">
-            <h1> <%= gravatar_for @user %> <%= @user.email %> </h1>
-        </section>
-    </aside>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td><%= gravatar_for @user %></td>
+                <td><%= @user.email %></td>
+            </tr>
+            <tr>
+                <td>Institution</td>
+                <td><%= @user.institution %></td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td><%= @user.role %></td>
+            </tr>
+            <tr>
+                <td>Activated?</td>
+                <td><%= @user.activated? ? "Yes" : "No" %></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
-<%= @user.institution %></br>
-<%= @user.role %></br>
-<%= @user.activated? ? "yes" : "no" %>
-
-    <%= link_to "Edit profile", edit_user_path(@user) %>
+<%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary" %>
 
 <% if current_user.admin? && !current_user?(@user) %>
-    <%= link_to "Delete", @user, method: :delete,
-        data: { confirm: "Are you sure?" } %>
+    <%= link_to "Delete user", @user, method: :delete,
+        data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
 <% end %>
 

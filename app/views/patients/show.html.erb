@@ -1,33 +1,35 @@
-<p>
-  <strong>Initials:</strong>
-    <%= @patient.initials %>
-</p>
- 
-<p>
-  <strong>Date of birth:</strong>
-    <%= @patient.date_of_birth %>
-</p>
- 
-<p>
-  <strong>Screening number:</strong>
-    <%= @patient.screening_number %>
-</p>
- 
-<p>
-  <strong>Screening date:</strong>
-    <%= @patient.screening_date %>
-</p>
- 
-<p>
-  <strong>Meets inclusion criteria:</strong>
-    <%= @patient.meets_inclusion_criteria %>
-</p>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Initials</td>
+                <td><%= @patient.initials %></td>
+            </tr>
+            <tr>
+                <td>Date of birth</td>
+                <td><%= @patient.date_of_birth %></td>
+            </tr>
+            <tr>
+                <td>Screening number</td>
+                <td><%= @patient.screening_number %></td>
+            </tr>
+            <tr>
+                <td>Screening date</td>
+                <td><%= @patient.screening_date %></td>
+            </tr>
+            <tr>
+                <td>Meets inclusion criteria</td>
+                <td><%= @patient.meets_inclusion_criteria %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<%= link_to 'Back', patients_path, class: "btn btn-primary" %>
 
 <% if !current_user.nurse? %>
-    <td><%= link_to 'Edit', edit_patient_path(@patient) %></td>
+    <td><%= link_to 'Edit', edit_patient_path(@patient), class: "btn btn-primary" %></td>
     <td><%= link_to 'Destroy', patient_path(@patient),
         method: :delete, 
-        data: { confirm: 'Are you sure?' } %></td>
+        data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
 <% end %>
-
-<%= link_to 'Back', patients_path %>

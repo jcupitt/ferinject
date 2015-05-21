@@ -1,0 +1,20 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :initials %>
+<%= f.text_field :initials, class: 'form-control' %>
+
+<%= f.label :date_of_birth, "Date of Birth" %>
+<%= f.date_field :date_of_birth, class: 'form-control' %>
+
+<%= f.label :screening_number %>
+<%= f.text_field :screening_number, class: 'form-control' %>
+
+<%= f.label :screening_date, "Screening Date" %>
+<%= f.date_field :screening_date, class: 'form-control' %>
+
+<div class="checkbox">
+    <%= f.check_box :meets_inclusion_criteria, class: 'form-control' %>
+    <%= f.label :meets_inclusion_criteria %>
+</div>
+
+

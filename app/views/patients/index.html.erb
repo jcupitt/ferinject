@@ -1,45 +1,33 @@
 <h1>All patients</h1>
 
-<%= will_paginate %>
- 
 <p>
-    <table>
-        <tr>
-            <th>Initials</th>
-            <th>Date of birth</th>
-            <th>Screening number</th>
-            <th>Screening date</th>
-            <th>Meets inclusion criteria</th>
-            <th>Week 1</th>
-            <th>Week 12</th>
-        </tr>
-
-        <% @patients.each do |patient| %>
+<%= will_paginate %>
+</p>
+ 
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td><%= link_to patient.initials, patient_path(patient) %></td>
-                <td><%= patient.date_of_birth %></td>
-                <td><%= patient.screening_number %></td>
-                <td><%= patient.screening_date %></td>
-                <td><%= patient.meets_inclusion_criteria %></td>
-                <% path = patient.get_path %>
-                <% if path != :x %>
-                    <% if path == :a %>
-                        <td>ap02</td>
-                        <td>td07</td>
-                    <% else %>
-                        <td>td07</td>
-                        <td>ap02</td>
-                    <% end %>
-                <% end %>
+                <th>Initials</th>
+                <th>Date of birth</th>
+                <th>Screening number</th>
+                <th>Screening date</th>
+                <th>Meets inclusion criteria</th>
+                <th>Week 1</th>
+                <th>Week 12</th>
             </tr>
-        <% end %>
+        </thead>
+
+        <tbody>
+            <%= render @patients %>
+        </tbody>
     </table>
+</div>
+
+<p>
+<%= will_paginate %>
 </p>
 
-<%= will_paginate %>
-
 <% if !current_user.nurse? %>
-    <p>
-        <%= link_to 'Register New Patient', new_patient_path %>
-    </p>
+    <%= link_to 'Register new patient', new_patient_path, class: "btn btn-primary" %>
 <% end %>

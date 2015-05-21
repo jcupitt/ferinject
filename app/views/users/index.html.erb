@@ -4,25 +4,27 @@
 <%= will_paginate %>
 </p>
 
-<p>
-<table class="users">
-    <tr>
-        <th></th>
-        <th>User</th>
-        <th>Role</th>
-        <th>Institution</th>
-        <th>Activated?</th>
-    </tr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>User</th>
+                <th>Role</th>
+                <th>Institution</th>
+                <th>Activated?</th>
+            </tr>
+        </thead>
 
-    <%= render @users %>
-</table>
-</p>
+        <tbody>
+            <%= render @users %>
+        </tbody>
+    </table>
+</div>
 
 <p>
 <%= will_paginate %>
 </p>
 
-<p>
-<%= link_to "Create user", signup_path, class: "btn btn-lg btn-primary" %>
-</p>
+<%= link_to "Create user", signup_path, class: "btn btn-primary" %>
 
