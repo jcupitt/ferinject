@@ -54,7 +54,8 @@ class PatientsController < ApplicationController
             params.require(:patient).permit(:initials, :date_of_birth, 
                                             :screening_number, :screening_date, 
                                             :meets_inclusion_criteria,
-                                            :rejection_note)
+                                            :rejection_note, 
+                                            :hospital_identifier)
         end
 
         def logged_in_user

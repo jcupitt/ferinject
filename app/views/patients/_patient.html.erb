@@ -1,18 +1,8 @@
 <tr>
     <td><%= link_to patient.initials, patient_path(patient) %></td>
     <td><%= patient.date_of_birth %></td>
-    <td><%= patient.screening_number %></td>
+    <td><%= patient.hospital_identifier %></td>
     <td><%= patient.screening_date %></td>
-    <td><%= patient.meets_inclusion_criteria %></td>
-    <% path = patient.get_path %>
-    <% if path != :x %>
-        <% if path == :a %>
-            <td>ap02</td>
-            <td>td07</td>
-        <% else %>
-            <td>td07</td>
-            <td>ap02</td>
-        <% end %>
-    <% end %>
+    <td><%= patient.meets_inclusion_criteria ? "Yes" : "No" %></td>
 </tr>
 
