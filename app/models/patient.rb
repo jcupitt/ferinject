@@ -7,6 +7,29 @@ class Patient < ActiveRecord::Base
         numericality: { only_integer: true }, uniqueness: true, 
         allow_blank: true 
 
+    # patient has been randomized?
+    def randomized?
+        (1..45).include? self.screening_number.to_i
+    end
+
+    # assign a screening_number ... pick the first unused one
+    def randomize
+        n = nil
+        (1..45).each do |i|
+            if not Patient.find_by screening_number: i
+                n = i
+                break
+            end
+        end
+
+        if not n
+            return false
+        end
+
+        update_attribute(:screening_number, n)
+        return true
+    end
+
     # patient randomisation table ... generated with
     # irb(main):006:0> ([:a] * 23 + [:b] * 22).shuffle
     # we wire this table into the model because we want to be sure it won't

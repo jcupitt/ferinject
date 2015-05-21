@@ -48,6 +48,20 @@ class PatientsController < ApplicationController
         redirect_to patients_path
     end
 
+    def randomize
+        patient = Patient.find(params[:id])
+
+        if patient.randomized?
+            flash[:danger] = "Patient already randomized."
+        elsif not patient.meets_inclusion_criteria
+            flash[:danger] = "Patient does not meet inclusion criteria."
+        elsif not patient.randomize
+            flash[:danger] = "All screening numbers already allocated."
+        end
+
+        redirect_to patient_path
+    end
+
     private
 
         def patient_params

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-    get 'signup'  => 'users#new'
+    get 'signup' => 'users#new'
 
-    get    'login'   => 'sessions#new'
-    post   'login'   => 'sessions#create'
-    delete 'logout'  => 'sessions#destroy'
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
 
     resources :patients
     resources :users
+
+    get 'patients/randomize/:id' => 'patients#randomize', :as => :randomize_patients
 
     resources :account_activations, only: [:edit]
 
