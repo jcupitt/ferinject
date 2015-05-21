@@ -31,6 +31,12 @@
                 <td>Screening number</td>
                 <td><%= @patient.screening_number %></td>
             </tr>
+            <% if @patient.randomized? %>
+                <tr>
+                    <td>Treatment code</td>
+                    <td><%= @patient.get_treatment_code %></td>
+                </tr>
+            <% end %>
         </tbody>
     </table>
 </div>

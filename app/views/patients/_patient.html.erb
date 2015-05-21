@@ -5,5 +5,8 @@
     <td><%= patient.screening_date %></td>
     <td><%= patient.meets_inclusion_criteria ? "Yes" : "No" %></td>
     <td><%= patient.randomized? ? "Yes" : "No" %></td>
+    <% if patient.randomized? %>
+        <td><%= patient.get_treatment_code %></td>
+    <% end %>
 </tr>
 

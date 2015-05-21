@@ -41,8 +41,24 @@ class Patient < ActiveRecord::Base
                              :a, :a, :b, :b, :b, :a, :b, :b, :b, :b, 
                              :b, :a, :a, :b, :a]
 
+    # patient random code table ... generated with
+    # require 'securerandom'
+    # Array.new(45).map! { |x| SecureRandom.hex(2) }
+    
+    @@random_table = ["457e", "f407", "d87e", "a766", "8fa8", "99bc", "8eb4",
+        "8f6b", "3db7", "a165", "d30c", "6ed5", "7acd", "bba2", "6cc3", "56fd",
+        "764e", "59f5", "a693", "8870", "84ec", "2824", "7c76", "7256", "6c53",
+        "4b49", "f0f4", "14b2", "6295", "4782", "e818", "f35c", "7657", "7991",
+        "3878", "2d31", "53eb", "28ac", "4197", "8cde", "a405", "d762", "82bb",
+        "d75c", "cf68"]
+
     def get_path
-        @@randomization_table.fetch(self.screening_number.to_i, :x)
+        @@randomization_table.fetch(self.screening_number.to_i, "Error")
     end
+
+    def get_treatment_code
+        @@random_table.fetch(self.screening_number.to_i, "Error")
+    end
+
 
 end
