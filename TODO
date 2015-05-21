@@ -11,6 +11,10 @@
 	git push heroku master
 	heroku run rake db:migrate
 
+  connect another machine to that heroku app
+
+  	heroku git:remote -a lit-escarpment-8460
+
   show logs
 
 	heroku logs

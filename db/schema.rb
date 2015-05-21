@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521121941) do
+ActiveRecord::Schema.define(version: 20150521150119) do
 
   create_table "patients", force: true do |t|
     t.string   "initials"
     t.date     "date_of_birth"
-    t.string   "screening_number"
+    t.integer  "screening_number",         limit: 255, default: 0
     t.date     "screening_date"
     t.boolean  "meets_inclusion_criteria"
     t.datetime "created_at"
