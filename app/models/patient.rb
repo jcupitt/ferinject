@@ -8,8 +8,13 @@ class Patient < ActiveRecord::Base
         allow_blank: true 
 
     def self.search(term)
-        where("initials like ? OR hospital_identifier like ? OR date_of_birth like ? OR screening_date like ?", 
-              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
+        if Rails.env.development?
+            query = "initials like ? OR hospital_identifier like ? OR date_of_birth like ? OR screening_date like ?"
+        else
+            query = "initials ilike ? OR hospital_identifier ilike ? OR date_of_birth ilike ? OR screening_date ilike ?"
+        end
+
+        where(query, "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
     end
 
     # the range we use for screening_number
