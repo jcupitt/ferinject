@@ -28,6 +28,8 @@
 <%= will_paginate %>
 </p>
 
-<% if !current_user.nurse? %>
-    <%= link_to 'Register new patient', new_patient_path, class: "btn btn-primary" %>
-<% end %>
+<div class="btn-toolbar">
+    <% if !current_user.nurse? %>
+        <%= link_to 'Register new patient', new_patient_path, class: "btn btn-primary" %>
+    <% end %>
+</div>

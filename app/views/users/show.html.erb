@@ -23,10 +23,13 @@
     </table>
 </div>
 
-<%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary" %>
+<div class="btn-toolbar">
+    <%= link_to "Edit profile", edit_user_path(@user), 
+        class: "btn btn-primary" %>
 
-<% if current_user.admin? && !current_user?(@user) %>
-    <%= link_to "Delete user", @user, method: :delete,
-        data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
-<% end %>
+    <% if current_user.admin? && !current_user?(@user) %>
+        <%= link_to "Delete user", @user, method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <% end %>
+</div>
 

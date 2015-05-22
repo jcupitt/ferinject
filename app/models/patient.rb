@@ -15,7 +15,7 @@ class Patient < ActiveRecord::Base
     # assign a screening_number ... pick the first unused one
     def randomize
         n = nil
-        (1..45).each do |i|
+        (1001..1045).each do |i|
             if not Patient.find_by screening_number: i
                 n = i
                 break
@@ -53,9 +53,9 @@ class Patient < ActiveRecord::Base
         "d75c", "cf68"]
 
     # treatment table, generated with
-    # (1..45).each do |i|
-    #   code = random_table[i - 1]
-    #   path = randomization_table[i - 1]
+    # (1001..1045).each do |i|
+    #   code = random_table[i - 1001]
+    #   path = randomization_table[i - 1001]
     #   puts "#{code}, #{path == :a ? 'a' : 'b'}, #{path == :a ?  # 'b' : 'a'}"
     # end
     #
@@ -106,11 +106,11 @@ class Patient < ActiveRecord::Base
     # cf68, a, b
 
     def get_path
-        @@randomization_table.fetch(self.screening_number.to_i - 1, "Error")
+        @@randomization_table.fetch(self.screening_number.to_i - 1001, "Error")
     end
 
     def get_treatment_code
-        @@random_table.fetch(self.screening_number.to_i - 1, "Error")
+        @@random_table.fetch(self.screening_number.to_i - 1001, "Error")
     end
 
 end
