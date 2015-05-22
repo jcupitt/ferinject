@@ -7,6 +7,11 @@ class Patient < ActiveRecord::Base
         numericality: { only_integer: true }, uniqueness: true, 
         allow_blank: true 
 
+    def self.search(term)
+        where("initials like ? OR hospital_identifier like ? OR date_of_birth like ? OR screening_date like ?", 
+              "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
+    end
+
     # the range we use for screening_number
     @@screening_range = (1001..1045)
 

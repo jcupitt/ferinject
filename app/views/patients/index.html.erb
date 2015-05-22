@@ -1,9 +1,17 @@
-<h1>All patients</h1>
+<h1>Patients</h1>
+
+<div class="container">
+    <div class="col-md-4 pull-right">
+        <%= form_tag patients_path, :method => "get" do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+        <% end %>
+    </div>
+</div>
 
 <p>
 <%= will_paginate %>
 </p>
- 
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
