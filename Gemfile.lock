@@ -28,11 +28,15 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (5.1.11)
+      execjs
+      json
     bcrypt (3.1.10)
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.0)
-      sass (~> 3.2)
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     bootstrap-will_paginate (0.0.10)
       will_paginate
     builder (3.2.2)
@@ -64,6 +68,8 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -142,7 +148,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
-  bootstrap-sass (= 3.2.0.0)
+  bootstrap-sass
   bootstrap-will_paginate
   byebug (= 3.4.0)
   coffee-rails (~> 4.0.0)
@@ -150,6 +156,7 @@ DEPENDENCIES
   email_validator
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   pg (= 0.17.1)
   puma (= 2.11.1)
   rails (= 4.1.8)

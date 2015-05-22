@@ -2,3 +2,20 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"> </script>
 <![endif]-->
 
+<script>
+(function() {
+    var elem = document.createElement('input');
+    elem.setAttribute('type', 'date');
+
+    if ( elem.type === 'text' ) {
+        $(document).on("page:load ready", function(){
+            $('input.datepicker').datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeMonth: true,
+                changeYear: true,
+                showAnim: "fade"
+            }); 
+        });
+    }
+})();
+</script>

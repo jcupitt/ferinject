@@ -1,3 +1,9 @@
+- off-site backups, including logs?
+
+- test suite
+
+- email on randomization
+
 - make sample user in DB with
 
 	$ rails console
