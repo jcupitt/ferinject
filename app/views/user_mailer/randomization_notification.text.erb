@@ -1,0 +1,14 @@
+COSMOFER randomization notification
+
+<%= @user.email %> from <%= @user.institution %> has randomized a patient 
+as follows: 
+
+Initials: <%= @patient.initials %>
+Date of birth: <%= @patient.date_of_birth %>
+Hospital identifier: <%= @patient.hospital_identifier %>
+Screening date: <%= @patient.screening_date %>
+Meets inclusion criteria: <%= @patient.meets_inclusion_criteria %>
+Rejection notes: <%= @patient.rejection_note %>
+Screening number: <%= @patient.screening_number %>
+Treatment code: <%= @patient.get_treatment_code %>
+

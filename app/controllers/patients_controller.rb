@@ -53,11 +53,20 @@ class PatientsController < ApplicationController
 
         if patient.randomized?
             flash[:danger] = "Patient already randomized."
-        elsif not patient.meets_inclusion_criteria
-            flash[:danger] = "Patient does not meet inclusion criteria."
-        elsif not patient.randomize
-            flash[:danger] = "All screening numbers already allocated."
+            redirect_to patient_path and return
         end
+
+        if not patient.meets_inclusion_criteria
+            flash[:danger] = "Patient does not meet inclusion criteria."
+            redirect_to patient_path and return
+        end
+
+        if not patient.randomize
+            flash[:danger] = "All screening numbers already allocated."
+            redirect_to patient_path and return
+        end
+
+        patient.send_randomization_notification_email(current_user)
 
         redirect_to patient_path
     end

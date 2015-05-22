@@ -1,0 +1,16 @@
+<h1>COSMOFER randomization notification</h1>
+
+<p>
+<%= @user.email %> from <%= @user.institution %> has randomized a patient 
+as follows: 
+</p>
+
+Initials: <%= @patient.initials %><br/>
+Date of birth: <%= @patient.date_of_birth %><br/>
+Hospital identifier: <%= @patient.hospital_identifier %><br/>
+Screening date: <%= @patient.screening_date %><br/>
+Meets inclusion criteria: <%= @patient.meets_inclusion_criteria %><br/>
+Rejection notes: <%= @patient.rejection_note %><br/>
+Screening number: <%= @patient.screening_number %><br/>
+Treatment code: <%= @patient.get_treatment_code %><br/>
+

@@ -15,6 +15,10 @@ class Patient < ActiveRecord::Base
         @@screening_range.include? self.screening_number
     end
 
+    def send_randomization_notification_email(user)
+        UserMailer.randomization_notification(self, user).deliver
+    end
+
     # assign a screening_number ... pick the first unused one
     def randomize
         n = nil

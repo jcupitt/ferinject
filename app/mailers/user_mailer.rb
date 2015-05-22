@@ -12,7 +12,15 @@ class UserMailer < ActionMailer::Base
         @user = user
 
         mail to: @@verification_address,
-            subject: "ferinject account activation for #{user.email}"
+            subject: "cosmofer account activation for #{user.email}"
+    end
+
+    def randomization_notification(patient, user)
+        @patient = patient
+        @user = user
+
+        mail to: @@verification_address,
+            subject: "cosmofer patient randomization by #{user.email}"
     end
 
 end
