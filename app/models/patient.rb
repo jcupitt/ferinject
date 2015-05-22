@@ -11,7 +11,7 @@ class Patient < ActiveRecord::Base
         if Rails.env.development?
             query = "initials like ? OR hospital_identifier like ? OR date_of_birth like ? OR screening_date like ?"
         else
-            query = "initials ilike ? OR hospital_identifier ilike ? OR cast(date_of_birth as string) ilike ? OR cast(screening_date as string) ilike ?"
+            query = "initials ilike ? OR hospital_identifier ilike ? OR cast(date_of_birth as text) ilike ? OR cast(screening_date as text) ilike ?"
         end
 
         where(query, "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
